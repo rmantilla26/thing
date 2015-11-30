@@ -1,0 +1,1 @@
+$('#relations_table').html("<%= escape_javascript render(@thing.relations) %>");

@@ -15,9 +15,13 @@ class ThingsController < ApplicationController
   # GET /things/new
   def new
     @thing = Thing.new
-    10.times do |tag|
+    10.times do |f|
      @thing.properties.build
     end
+    2.times do |f|
+     @thing.relations.build
+    end
+
     @properties_type = Type.all
   end
 
@@ -73,6 +77,6 @@ class ThingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def thing_params
-      params.require(:thing).permit(:name_en, :name_es, properties_attributes: [:id, :name_es, :name_en, :type_id])
+      params.require(:thing).permit(:name_en, :name_es, properties_attributes: [:id, :name_es, :name_en, :type_id], relations_attributes: [:id, :related_to_thing_id])
     end
 end

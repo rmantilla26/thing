@@ -21,8 +21,8 @@ function remove_fields(link) {
   $(link).closest(".fields").hide();
 }
 
-function add_fields(link, association, content) {
+function add_fields(link, association, content, id) {
   var new_id = new Date().getTime();
   var regexp = new RegExp("new_" + association, "g")
-  $("#tabla").append(content.replace(regexp, new_id));
+  $(link).closest('tr').before(content.replace(regexp, new_id));
 }

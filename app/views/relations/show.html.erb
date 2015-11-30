@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Thing:</strong>
+   <div id="relations_table">
+  <%= @relation.thing %>
+   </div>
+</p>
+
+<p>
+  <strong>Related to thing:</strong>
+  <div id="properties_table">
+  <%= @relation.related_to_thing_id %>
+  </div>
+</p>
+
+<%= link_to 'Edit', edit_relation_path(@relation) %> |
+<%= link_to 'Back', relations_path %>

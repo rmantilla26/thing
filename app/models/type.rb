@@ -1,3 +1,3 @@
 class Type < ActiveRecord::Base
-	has_many :properties
+ has_many :properties
 end

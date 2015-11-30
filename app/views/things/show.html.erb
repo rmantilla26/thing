@@ -10,5 +10,27 @@
   <%= @thing.name_es %>
 </p>
 
+<p>
+<table>
+	<th>Nombre Español</th>
+  	<th>Nombre Ingles</th>
+  	<th>Tipo</th>
+	<th></th>
+	<tbody id="properties_table">
+	<%= render (@thing.properties) %>
+	</tbody>
+</table>
+</p>
+
+<p>
+<table>
+	<th>Tiene Muchos</th>
+  	<th></th>
+  	<tbody id="relations_table">
+	<%= render (@thing.relations) %>
+	</tbody>
+</table>
+</p>
+
 <%= link_to 'Edit', edit_thing_path(@thing) %> |
 <%= link_to 'Back', things_path %>

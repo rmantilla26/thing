@@ -1,0 +1,6 @@
+<tr>
+    <td><%= property.name_es %></td>
+    <td><%= property.name_en %></td>
+    <td><%= property.type.name %></td>
+    <td><%= link_to 'Eliminar', property, method: :delete, data: { confirm: 'Estas seguro?' }, remote: true  %></td>
+</tr>

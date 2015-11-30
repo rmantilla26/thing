@@ -18,6 +18,7 @@ class ThingsController < ApplicationController
     10.times do |tag|
      @thing.properties.build
     end
+    @properties_type = Type.all
   end
 
   # GET /things/1/edit
@@ -72,6 +73,6 @@ class ThingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def thing_params
-      params.require(:thing).permit(:name_en, :name_es, properties_attributes: [:name_es, :name_en, :type])
+      params.require(:thing).permit(:name_en, :name_es, properties_attributes: [:id, :name_es, :name_en, :type_id])
     end
 end

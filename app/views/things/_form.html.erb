@@ -1,0 +1,18 @@
+<%=simple_form_for(@thing, html: { class: 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name_en %>
+  <%= f.input :name_es %>
+  <table>
+    <th>Nombre EN</th>
+    <th>Nombre ES</th>
+    <th>Tipo</th>
+  <%= f.fields_for :properties, @thing.properties do |property| %>
+    <tr>
+    <td><%= property.input :name_en, label:false %></td>
+    <td><%= property.input :name_es, label:false %></td>
+    <td><%= property.input :type, label:false, collection: Type.all, :label_method => :name, :value_method => :id %></td>
+  </tr>
+  <% end %>
+  </table>
+  <%= f.submit %>
+<% end %>

@@ -4,5 +4,11 @@
     <td><%= f.input :name_es, label:false %></td>
     <td><%= f.input :name_en, label:false %></td>
     <td><%= f.association :type, label:false, :collection => Type.all, prompt: "Tipo de dato", :label_method => :name, :value_method => :id %></td>
-    <td><%= link_to_remove_fields "remove", f %></td>
+    <td>
+    	<% unless f.object.id %>
+    	<%= link_to_remove_fields "remove", f %>
+    	<% else %>
+    	<%= link_to 'Eliminar', f.object, method: :delete, data: { confirm: 'Estas seguro?' }, remote: true  %>
+    	<% end %>
+    </td>
  </tr>

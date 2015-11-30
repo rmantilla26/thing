@@ -2,5 +2,11 @@
     <%= f.hidden_field :id, label:false %>
     <%= f.hidden_field :_destroy %>
     <td><%= f.association :related_to_thing, label:false, :collection => Thing.all, prompt: "Tipo de Objeto", :label_method => :name_es, :value_method => :id %></td>
-    <td><%= link_to_remove_fields "remove", f %></td>
+    <td>
+    	<% unless f.object.id %>
+    	<%= link_to_remove_fields "remove", f %>
+    	<% else %>
+    	<%= link_to 'Eliminar', f.object, method: :delete, data: { confirm: 'Estas seguro?' }, remote: true  %>
+    	<% end %>
+    </td>
  </tr>

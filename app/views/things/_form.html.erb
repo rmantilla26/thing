@@ -10,31 +10,35 @@
 </table>
 
 <div>
-<h4>Propiedades</h4>
-<table id="property_table">
-  <th>Nombre Español</th>
-  <th>Nombre Ingles</th>
-  <th>Tipo</th>
-  <%= f.fields_for :properties, @thing.properties do |property| %>
-    <%= render "property_fields", :f => property %>
-  <% end %>
-  <tr>
-  <td><p><%= link_to_add_fields "Agregar Propiedad", f, :properties %></p></td>
-  </tr>
-</table>
+  <h4>Propiedades</h4>
+  <table>
+    <th>Nombre Español</th>
+    <th>Nombre Ingles</th>
+    <th>Tipo</th>
+    <tbody id="properties_table">
+      <%= f.fields_for :properties, @thing.properties do |property| %>
+      <%= render "property_fields", :f => property %>
+      <% end %>
+    </tbody>
+    <tr>
+      <td><p><%= link_to_add_fields "Agregar Propiedad", f, :properties %></p></td>
+    </tr>
+  </table>
 
 </div>
 <div>
-<h4>Relación</h4>
-<table id="relation_table">
- <th>Tiene Muchos</th>
-  </tr>
-<%= f.fields_for :relations, @thing.relations do |relation| %>
-    <%= render "relation_fields", :f => relation %>
+  <h4>Relación</h4>
+  <table>
+   <th>Tiene Muchos</th>
+ </tr>
+ <tbody id="relations_table">
+  <%= f.fields_for :relations, @thing.relations do |relation| %>
+  <%= render "relation_fields", :f => relation %>
   <% end %>
-   <tr>
+</tbody>
+<tr>
   <td>
-  <p><%= link_to_add_fields "Agregar Relacion", f, :relations %></p>
+    <p><%= link_to_add_fields "Agregar Relacion", f, :relations %></p>
   </td>
 </table>
 </div>

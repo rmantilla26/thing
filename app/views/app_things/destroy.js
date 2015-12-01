@@ -1,0 +1,1 @@
+$('#properties_table').html("<%= escape_javascript render(@app.app_things) %>");

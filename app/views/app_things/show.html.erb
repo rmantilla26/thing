@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>App:</strong>
+  <%= @app_thing.app %>
+</p>
+
+<p>
+  <strong>Thing:</strong>
+  <%= @app_thing.thing %>
+</p>
+
+<%= link_to 'Edit', edit_app_thing_path(@app_thing) %> |
+<%= link_to 'Back', app_things_path %>

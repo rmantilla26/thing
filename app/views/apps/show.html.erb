@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @app.name %>
+</p>
+
+<p>
+<table>
+	<th>Propiedades</th>
+  	<th></th>
+	<tbody id="properties_table">
+	<%= render (@app.app_things) %>
+	</tbody>
+</table>
+</p>
+
+<%= link_to 'Edit', edit_app_path(@app) %> |
+<%= link_to 'Back', apps_path %>

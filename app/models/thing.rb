@@ -2,6 +2,7 @@ class Thing < ActiveRecord::Base
 	
 	has_many :properties
 	has_many :relations
+	has_many :app_things
 
 	validates :name_es, :name_en, presence: true, uniqueness: true
   	

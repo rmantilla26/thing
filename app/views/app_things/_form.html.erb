@@ -1,0 +1,12 @@
+<%= simple_form_for(@app_thing) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :app %>
+    <%= f.association :thing %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

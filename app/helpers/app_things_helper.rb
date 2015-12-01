@@ -1,0 +1,2 @@
+module AppThingsHelper
+end

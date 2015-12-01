@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :app_things
+  resources :apps
   resources :relations
   resources :properties
   resources :types

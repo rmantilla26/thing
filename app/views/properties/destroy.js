@@ -1,1 +1,1 @@
-$('#properties_table').html("<%= escape_javascript render(@thing.properties) %>");
+$('#properties_table').html("<%= escape_javascript render(@thing.app_things) %>");

@@ -1,19 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name en:</strong>
-  <%= @thing.name_en %>
+  <strong>Clase:</strong>
 </p>
-
 <p>
-  <strong>Name es:</strong>
-  <%= @thing.name_es %>
+<%= @thing.name %>
 </p>
-
 <p>
 <table>
-	<th>Nombre Español</th>
-  	<th>Nombre Ingles</th>
+	<th>Propiedad</th>
   	<th>Tipo</th>
 	<th></th>
 	<tbody id="properties_table">
@@ -21,10 +16,13 @@
 	</tbody>
 </table>
 </p>
-
+<p>
+<strong>Asociaciones:</strong>
+</p>
 <p>
 <table>
-	<th>Tiene Muchos</th>
+	<th></th>
+	<th></th>
   	<th></th>
   	<tbody id="relations_table">
 	<%= render (@thing.relations) %>

@@ -30,8 +30,7 @@ ActiveRecord::Schema.define(version: 20151201200723) do
   end
 
   create_table "properties", force: :cascade do |t|
-    t.string   "name_en"
-    t.string   "name_es"
+    t.string   "name"
     t.integer  "thing_id"
     t.integer  "type_id"
     t.datetime "created_at", null: false
@@ -42,6 +41,7 @@ ActiveRecord::Schema.define(version: 20151201200723) do
   add_index "properties", ["type_id"], name: "index_properties_on_type_id"
 
   create_table "relations", force: :cascade do |t|
+    t.integer  "association_type"
     t.integer  "thing_id"
     t.integer  "related_to_thing_id"
     t.datetime "created_at",          null: false
@@ -49,8 +49,7 @@ ActiveRecord::Schema.define(version: 20151201200723) do
   end
 
   create_table "things", force: :cascade do |t|
-    t.string   "name_en"
-    t.string   "name_es"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

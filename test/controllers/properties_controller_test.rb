@@ -18,7 +18,7 @@ class PropertiesControllerTest < ActionController::TestCase
 
   test "should create property" do
     assert_difference('Property.count') do
-      post :create, property: { name_en: @property.name_en, name_es: @property.name_es, thing_id: @property.thing_id, type_id: @property.type_id }
+      post :create, property: { name: @property.name, thing_id: @property.thing_id, type_id: @property.type_id }
     end
 
     assert_redirected_to property_path(assigns(:property))
@@ -35,7 +35,7 @@ class PropertiesControllerTest < ActionController::TestCase
   end
 
   test "should update property" do
-    patch :update, id: @property, property: { name_en: @property.name_en, name_es: @property.name_es, thing_id: @property.thing_id, type_id: @property.type_id }
+    patch :update, id: @property, property: { name: @property.name, thing_id: @property.thing_id, type_id: @property.type_id }
     assert_redirected_to property_path(assigns(:property))
   end
 

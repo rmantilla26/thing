@@ -1,7 +1,7 @@
 <tr class="fields">
     <%= f.hidden_field :id, label:false %>
     <%= f.hidden_field :_destroy %>
-    <td><%= f.association :thing, label:false, :collection => Thing.all, prompt: "Tipo de Objeto", :label_method => :name_es, :value_method => :id %></td>
+    <td><%= f.association :thing, label:false, :collection => Thing.all, prompt: "Tipo de Objeto", :label_method => :name, :value_method => :id %></td>
     <td>
     	<% unless f.object.id %>
     	<%= link_to_remove_fields "Eliminar", f %>

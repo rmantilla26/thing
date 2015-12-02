@@ -3,6 +3,7 @@
 
   <div class="form-inputs">
     <%= f.input :thing %>
+    <td><%= f.input :relation_type_id, collection: Relation::RELATION_TYPES %></td>
     <%= f.input :related_to_thing_id %>
   </div>
 

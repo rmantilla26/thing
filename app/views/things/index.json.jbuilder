@@ -1,4 +1,4 @@
 json.array!(@things) do |thing|
-  json.extract! thing, :id, :name_en, :name_es
+  json.extract! thing, :id, :name
   json.url thing_url(thing, format: :json)
 end

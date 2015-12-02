@@ -69,6 +69,6 @@ class RelationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def relation_params
-      params.require(:relation).permit(:thing, :related_to_thing_id)
+      params.require(:relation).permit(:thing, :related_to_thing_id, :association_type)
     end
 end

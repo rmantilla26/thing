@@ -1,4 +1,5 @@
 <tr>
-	<td><%= relation.related_to_thing.name_es %></td>
+	<td><strong><%= relation.association_type_name %></strong></td>
+	<td><%= relation.related_to_thing.name %></td>
 	<td><%= link_to 'Eliminar', relation, method: :delete, data: { confirm: 'Esta seguro?' }, remote: true  %></td>
 </tr>

@@ -1,5 +1,6 @@
-<h1>Nuevo Objecto</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', things_path %>
+ <%= link_to 'Atrás', app_path(@app) %>
+ <div class="row">
+    <div class="col-md-10"><h1 class="page-header">Nuevo Modelo</h1></div>
+    <div class="col-md-2 text-right"><%=image_tag("thing.jpeg", height: '50', width: '50', class: "img-responsive", alt: "Generic placeholder thumbnail" )%></div>
+  </div>
+ <%= render 'form' %>

@@ -25,8 +25,9 @@ ActiveRecord::Schema.define(version: 20151201200723) do
 
   create_table "apps", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "properties", force: :cascade do |t|
@@ -50,8 +51,10 @@ ActiveRecord::Schema.define(version: 20151201200723) do
 
   create_table "things", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "app_id"
   end
 
   create_table "types", force: :cascade do |t|

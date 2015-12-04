@@ -1,0 +1,20 @@
+<div class="col-sm-3 col-md-2 sidebar">
+	<ul class="nav nav-sidebar">
+		<li class="active">
+			<%= link_to 'Proyectos', apps_path %>
+		</li>
+		<li><a href="#">Reports</a></li>
+		<li><a href="#">Analytics</a></li>
+		<li><a href="#">Export</a></li>
+	</ul>
+	<% if @app %>
+	<ul class="nav nav-sidebar">
+		<% @app.things.each do |t| %>
+		<li>
+			<%=link_to t.name, app_thing_path(@app, t) %>
+		</li>
+	<% end %>
+	</ul>
+	<% end %>
+	
+</div>

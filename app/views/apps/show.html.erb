@@ -1,19 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @app.name %>
-</p>
-
-<p>
-<table>
-	<th>Propiedades</th>
-  	<th></th>
-	<tbody id="properties_table">
-	<%= render (@app.app_things) %>
-	</tbody>
-</table>
-</p>
-
-<%= link_to 'Edit', edit_app_path(@app) %> |
-<%= link_to 'Back', apps_path %>
+<%= link_to 'Atrás', apps_path %>
+<h1 class="page-header"><%= @app.name %></h1>
+<h1><small>Modelos <%= link_to '+', new_app_thing_path(@app) , class: "btn btn-xs btn-default" %></small></h1>
+<div class="row placeholders">
+  <% @app.things.each do |thing| %>
+  <div class="col-sm-2 placeholder">
+    <%= link_to(image_tag("thing.jpeg", height: '100', width: '100', class: "img-responsive", alt: "Generic placeholder thumbnail" ),app_thing_path(@app,thing )) %>
+    <h4><%= thing.name %></h4>
+    <span class="text-muted"><%= thing.description %></span>
+  </div>
+  <% end %>
+</div>

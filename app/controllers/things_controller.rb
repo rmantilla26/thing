@@ -1,5 +1,6 @@
 class ThingsController < ApplicationController
   before_action :set_thing, only: [:show, :edit, :update, :destroy]
+  before_action :set_app, only: [:edit, :show, :new, :create,:update, :destroy]
 
   # GET /things
   # GET /things.json
@@ -15,14 +16,6 @@ class ThingsController < ApplicationController
   # GET /things/new
   def new
     @thing = Thing.new
-    10.times do |f|
-     @thing.properties.build
-    end
-    2.times do |f|
-     @thing.relations.build
-    end
-
-    @properties_type = Type.all
   end
 
   # GET /things/1/edit
@@ -32,11 +25,11 @@ class ThingsController < ApplicationController
   # POST /things
   # POST /things.json
   def create
-    @thing = Thing.new(thing_params)
+    @thing = @app.things.build(thing_params)
 
     respond_to do |format|
       if @thing.save
-        format.html { redirect_to @thing, notice: 'Thing was successfully created.' }
+        format.html { redirect_to app_thing_path(@app,@thing), notice: 'Thing was successfully created.' }
         format.json { render :show, status: :created, location: @thing }
       else
         format.html { render :new }
@@ -50,7 +43,7 @@ class ThingsController < ApplicationController
   def update
     respond_to do |format|
       if @thing.update(thing_params)
-        format.html { redirect_to @thing, notice: 'Thing was successfully updated.' }
+        format.html { redirect_to app_thing_path(@app,@thing), notice: 'Thing was successfully updated.' }
         format.json { render :show, status: :ok, location: @thing }
       else
         format.html { render :edit }
@@ -64,7 +57,7 @@ class ThingsController < ApplicationController
   def destroy
     @thing.destroy
     respond_to do |format|
-      format.html { redirect_to things_url, notice: 'Thing was successfully destroyed.' }
+      format.html { redirect_to app_thing_path(@app,@thing), notice: 'Thing was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -75,8 +68,12 @@ class ThingsController < ApplicationController
       @thing = Thing.find(params[:id])
     end
 
+    def set_app
+      @app = App.find(params[:app_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def thing_params
-      params.require(:thing).permit(:name, properties_attributes: [:id, :name, :type_id, :_destroy], relations_attributes: [:id, :related_to_thing_id, :_destroy, :association_type])
+      params.require(:thing).permit(:name,:description, properties_attributes: [:id, :name, :type_id, :_destroy], relations_attributes: [:id, :related_to_thing_id, :_destroy, :association_type])
     end
 end
